@@ -1,0 +1,66 @@
+body {
+    font-size: 16px;
+    background-image: url("/images/fondoProvisional.jpg");
+    background-color: green;
+    background-repeat: repeat;
+    color: white;   
+}
+
+#hidden {
+    display: none;
+}
+
+.reglas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40rem;
+}
+
+.button {
+    padding: 2rem 3rem;
+    border-radius: 25px;
+    width: 8rem;
+    height: 8rem;
+}
+
+#hidden button {
+    display: block;
+}
+
+table, th, td {
+    border: 1px solid white;
+    text-align: center;
+}
+
+td, th {
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-evenly;
+}
+ 
+
+#score {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-evenly;
+}
+
+
+
