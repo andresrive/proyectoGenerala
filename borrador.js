@@ -9,9 +9,11 @@ class Dado {
         this.img
         this.valor = random  //dejamos este valor aqui???
     }
+
+    tirarUnDado(){} // para establecer una cara a cada dado
 }
 
-class TiradadeDados {
+class TiradadeDados { // todas las acciones
     constructor() {
         this.dados = []
 
@@ -23,7 +25,7 @@ class TiradadeDados {
 
     tirarDados() {
         for (let i = 1; i <= 5; i++) {
-            this.dado = new Dado(this.printRandom())
+            this.dado = new Dado()
             this.dados.push(dado)
         }
     }
