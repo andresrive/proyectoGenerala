@@ -6,20 +6,28 @@ class Jugador {
 
 class Dado {
     constructor(identificador) {
-        this.valor = (Math.floor(Math.random() * (7 - 1) + 1)) 
-         //this.valor = this.printRandom()  PREGUNTAR PORQUE NO SE PUEDE!!!!!
+        this.valor = (Math.floor(Math.random() * (7 - 1) + 1))
+        //this.valor = this.printRandom()  PREGUNTAR PORQUE NO SE PUEDE!!!!!
         this.seleccionado = false;
-         
-        //this.imgDado1 = document.getElementById("dado1").createElement('img')
-        //this.imgDado1.src = "images/imagenDado1.png"
-        //this.imgDado2 = document.createElement('img')
-        //this.imgDado1.src = // pendiente de cargar img 
-        //    this.imgDado3 = document.createElement('img')
-        //this.imgDado1.src = // pendiente de cargar img 
-          //  this.imgDado4 = document.createElement('img')
-        //this.imgDado1.src = // pendiente de cargar img 
-          //  this.imgDado5 = document.createElement('img')
-        /*  this.imgDado1.src = // pendiente de cargar img   */
+
+        this.imgLado1 = document.createElement('img')
+        this.imgLado1.src = "proyectoGenerala/images/imagenDado1.png"
+
+        this.imgLado2 = document.createElement('img')
+        this.imgLado2.src = "proyectoGenerala/images/imagenDado2.png"
+
+        this.imgLado3 = document.createElement('img')
+        this.imgLado3.src = "proyectoGenerala/images/imagenDado3.png"
+
+        this.imgLado4 = document.createElement('img')
+        this.imgLado4.src = "proyectoGenerala/images/imagenDado4.png"
+
+        this.imgLado5 = document.createElement('img')
+        this.imgLado5.src = "proyectoGenerala/images/imagenDado5.png"
+
+        this.imgLado6 = document.createElement('img')
+        this.imgLado6.src = "proyectoGenerala/images/imagenDado6.png"
+
     }
 
     printRandom() {
@@ -56,7 +64,7 @@ class Cubilete {
       
       } */
 
-    tirarDador() {
+    tirarDado() {
         if (this.arrayDados.length === 0) { //para saber si es la primer tirada, array vacio
             for (let i = 1; i <= 5; i++) {
                 let dado = new Dado()
@@ -74,21 +82,21 @@ class Cubilete {
             }
 
         }
-     
+
     }
 }
 
-   /*     volverATirar(dadosATirar) {
-                let indice
-                let indiceDado
-                for (let i = 0; i < dadosATirar.length; i++) {
-                    indice = dadosATirar[i]
-                    indiceDado = this.arrayDados[indice]
-                    this.valor = this.printRandom()
-                }
-                console.log(indiceDado.valor)
-            }
-         */
+/*     volverATirar(dadosATirar) {
+             let indice
+             let indiceDado
+             for (let i = 0; i < dadosATirar.length; i++) {
+                 indice = dadosATirar[i]
+                 indiceDado = this.arrayDados[indice]
+                 this.valor = this.printRandom()
+             }
+             console.log(indiceDado.valor)
+         }
+      */
 
 
 
@@ -115,15 +123,15 @@ class Juego {
     constructor() {
         this.tablero = new Tablero()
         this.jugador = new Jugador()
-        
+
         this.cubilete = new Cubilete()
 
     }
 
     start() { }
     play() {
-  this.cubilete.tirarDador()
-  console.log(this.cubilete.arrayDados)
+        this.cubilete.tirarDado()
+        console.log(this.cubilete.arrayDados)
 
     }
     end() { }
@@ -131,3 +139,43 @@ class Juego {
 
 let juego = new Juego()
 juego.play()
+
+
+// EVENTOS VARIOS
+document.getElementById("dado1").appendChild("resultado del primer dado") //Y ASI PARA LOS OTROS 4 DADOS
+document.getElementById("tirarDados").addEventListener("click", () => {
+
+})
+document.getElementById("botonOk").addEventListener("click", () => { //GUARDA LOS RESULTADOS
+
+})
+
+document.querySelector("#hidden button")[0].onclick = () => { //boton de reglas para empezar a jugar?
+
+};
+
+window.onload = () => { }  // TODO DENTRO DE ESTO
+
+document.getElementById("dado1").addEventListener("click", () => { //EN TODOS LOS DADOS
+    //funcion que cambie "this.seleccionado" a true y a false constantemente 
+})
+
+document.getElementById("escalera").appendChild("resultado de la ronda si puedo hacer escalera")
+
+document.getElementById("escalera").addEventListener("click", () => { //ELIJO ESE RESULTADO COMO EL QUE QUIERO Y LUEGO LE DOY AL BOTON OK
+
+})
+document.getElementById("sumaSeis").appendChild("resultado de la ronda si puedo juntar uno o mas seis")
+
+document.getElementById("sumaSeis").addEventListener("click", () => { //ELIJO ESE RESULTADO COMO EL QUE QUIERO Y LUEGO LE DOY AL BOTON OK
+
+})
+
+
+
+
+
+
+
+
+
