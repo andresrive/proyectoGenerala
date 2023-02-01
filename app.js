@@ -9,7 +9,7 @@ class Dado {
         this.valor = this.printRandom()
         this.seleccionado = false;
         this.identificador = identificador
-        this.img = ""
+       /*  this.img = ""
         switch (this.valor) {
             case 1:
                 this.imgDado1.src = "images/imagenDado1.png"
@@ -17,7 +17,7 @@ class Dado {
 
             default:
                 break;
-        }
+        } */
     }
 
     printRandom() {
@@ -45,18 +45,18 @@ class Cubilete {
         else {
             for (let i = 1; i <= 5; i++) {
                 let objetoDelArrayDADO = this.arrayDados[i]       //es un objeto dado!
-                if (objetoDelArrayDADO.selecionado === true) {
+                if (objetoDelArrayDADO.seleccionado === true) {
                     objetoDelArrayDADO  // que se devuelva a el mismo????
                 }
 
-                else if (objetoDelArrayDADO.selecionado === false) {
+                else if (objetoDelArrayDADO.seleccionado === false) {
                     objetoDelArrayDADO.recalcularValorDado()
                 }
             }
         }
     }
 
-    tirarDadosPrueba() {
+ /*    tirarDadosPrueba() {
         let pocker = [
             { valor: 5, seleccionado: false, identificador: 1 },
             { valor: 5, seleccionado: false, identificador: 2 },
@@ -109,8 +109,8 @@ class Cubilete {
             { valor: 6, seleccionado: false, identificador: 5 }
         ]
         /* return escaleraChunga */
-        return full
-    }
+        /* return full */
+      
 }
 
 
@@ -128,6 +128,8 @@ class Tablero {
         this.generala = 55
 
     }
+
+    
 
     getOptions(arrayDados) {     //obtengo opcines numericas
         let arrayValores = arrayDados.map((dado) => {
@@ -215,10 +217,10 @@ class Juego {
         this.cubilete.tirarDado()
         console.log(this.cubilete.arrayDados)
         console.log('----------------')
-        /* let opciones = this.tablero.getOptions(this.cubilete.arrayDados)
+        let opciones = this.tablero.getOptions(this.cubilete.arrayDados)
+        console.log(opciones) 
+      /*   let opciones = this.tablero.getOptions(this.cubilete.tirarDadosPrueba())  // volver a la funcion oroginal
         console.log(opciones) */
-        let opciones = this.tablero.getOptions(this.cubilete.tirarDadosPrueba())  // volver a la funcion oroginal
-        console.log(opciones)
 
 
         //1 - tirar dados
