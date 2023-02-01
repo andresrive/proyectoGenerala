@@ -1,5 +1,9 @@
 window.onload = () => {
 
+    let llamadasATirarDados = 0;
+
+
+
     class Jugador {
         constructor() {
             this.nombre = ""
@@ -14,22 +18,22 @@ window.onload = () => {
             this.dom = document.getElementById(`dado${identificador}`)
             switch (this.valor) {
                 case 1:
-                    this.dom.src = "/proyectoGenerala/images/imagenDado1.png"
+                    this.dom.src = "./images/imagenDado1.png"
                     break;
                 case 2:
-                    this.dom.src = "/proyectoGenerala/images/imagenDado2.png"
+                    this.dom.src = "./images/imagenDado2.png"
                     break;
                 case 3:
-                    this.dom.src = "/proyectoGenerala/images/imagenDado3.png"
+                    this.dom.src = "./images/imagenDado3.png"
                     break;
                 case 4:
-                    this.dom.src = "/proyectoGenerala/images/imagenDado4.png"
+                    this.dom.src = "./images/imagenDado4.png"
                     break;
                 case 5:
-                    this.dom.src = "/proyectoGenerala/images/imagenDado5.png"
+                    this.dom.src = "./images/imagenDado5.png"
                     break;
                 case 6:
-                    this.dom.src = "/proyectoGenerala/images/imagenDado6.png"
+                    this.dom.src = "./images/imagenDado6.png"
                     break;
             }
         }
@@ -72,75 +76,10 @@ window.onload = () => {
             })
             console.log(this.arrayDados)
             return this.arrayDados;
-            // for (let i = 0; i <= 5; i++) {
-            //     let objetoDelArrayDADO = this.arrayDados[i]       //es un objeto dado!
-            //     console.log(objetoDelArrayDADO.seleccionado)
-            //     if (!objetoDelArrayDADO.seleccionado) {
-            //         objetoDelArrayDADO  // que se devuelva a el mismo????
-            //     }
 
-            //     else if (objetoDelArrayDADO.seleccionado == false) {
-            //         objetoDelArrayDADO.recalcularValorDado()
-            //     }
-            // }
         }
 
 
-        tirarDadosPrueba() {
-            let pocker = [
-                { valor: 5, seleccionado: false, identificador: 1 },
-                { valor: 5, seleccionado: false, identificador: 2 },
-                { valor: 5, seleccionado: false, identificador: 3 },
-                { valor: 5, seleccionado: false, identificador: 4 },
-                { valor: 4, seleccionado: false, identificador: 5 }
-            ]
-
-            let full = [
-                { valor: 5, seleccionado: false, identificador: 1 },
-                { valor: 5, seleccionado: false, identificador: 2 },
-                { valor: 5, seleccionado: false, identificador: 3 },
-                { valor: 4, seleccionado: false, identificador: 4 },
-                { valor: 4, seleccionado: false, identificador: 5 }
-            ]
-
-
-            let generala = [
-                { valor: 5, seleccionado: false, identificador: 1 },
-                { valor: 5, seleccionado: false, identificador: 2 },
-                { valor: 5, seleccionado: false, identificador: 3 },
-                { valor: 5, seleccionado: false, identificador: 4 },
-                { valor: 5, seleccionado: false, identificador: 5 }
-            ]
-
-
-            let escalera = [
-                { valor: 1, seleccionado: false, identificador: 1 },
-                { valor: 2, seleccionado: false, identificador: 2 },
-                { valor: 3, seleccionado: false, identificador: 3 },
-                { valor: 4, seleccionado: false, identificador: 4 },
-                { valor: 5, seleccionado: false, identificador: 5 }
-            ]
-
-
-            let escalera1 = [
-                { valor: 2, seleccionado: false, identificador: 1 },
-                { valor: 3, seleccionado: false, identificador: 2 },
-                { valor: 4, seleccionado: false, identificador: 3 },
-                { valor: 5, seleccionado: false, identificador: 4 },
-                { valor: 6, seleccionado: false, identificador: 5 }
-            ]
-
-
-            let escaleraChunga = [
-                { valor: 2, seleccionado: false, identificador: 1 },
-                { valor: 1, seleccionado: false, identificador: 2 },
-                { valor: 4, seleccionado: false, identificador: 3 },
-                { valor: 5, seleccionado: false, identificador: 4 },
-                { valor: 6, seleccionado: false, identificador: 5 }
-            ]
-            /* return escaleraChunga */
-            return full
-        }
     }
 
 
@@ -245,28 +184,32 @@ window.onload = () => {
 
         play() {
             this.cubilete.tirarDado()
+
+            console.log("LLamadasATirarDados dentro de play()" + llamadasATirarDados)
+
             console.log(this.cubilete.arrayDados)
-            // console.log('----------------')
+            // // console.log('----------------')
             let opciones = this.tablero.getOptions(this.cubilete.arrayDados)
             console.log(opciones)
             // let opciones = this.tablero.getOptions(this.cubilete.tirarDadosPrueba())  // volver a la funcion oroginal
             // console.log(opciones)
-
-
-            //1 - tirar dados
-            // 2- seleccionar dados y volver a tirar (tirardados)
-            // 3 - llamar a getOptions y posibilidades de score.
-            //4 - validacion de opciones  para tablero
-            //5-Mostrar posibilidades al jugador en ele tablero
-            //6 - jugador elige posibilidad 
-            //7- toca boton Ok y guardar la posibilidad en el tablero
-            // 8 - vuelvo a tirar dados
-            // asi hasta cuando??? hasta que todas las opciones del tablero estan cubiertas
-
-
         }
-        end() { } //cuando se completa el tablero
+
+        //1 - tirar dados
+        // 2- seleccionar dados y volver a tirar (tirardados)
+        // 3 - llamar a getOptions y posibilidades de score.
+        //4 - validacion de opciones  para tablero
+        //5-Mostrar posibilidades al jugador en ele tablero
+        //6 - jugador elige posibilidad 
+        //7- toca boton Ok y guardar la posibilidad en el tablero
+        // 8 - vuelvo a tirar dados
+        // asi hasta cuando??? hasta que todas las opciones del tablero estan cubiertas
+
+
     }
+    // end() { } //cuando se completa el tablero
+
+
 
     let juego = new Juego()
     juego.start()
@@ -275,15 +218,51 @@ window.onload = () => {
 
     // EVENTOS VARIOS
     document.getElementById("tirarDados").addEventListener("click", () => {
+        if (llamadasATirarDados >= 3) return
         juego.play()
+        llamadasATirarDados++
+        console.log("LLamadasATirarDados" + llamadasATirarDados)
+
+
     })
 
     document.getElementById("dado1").addEventListener("click", () => {
-
         juego.cubilete.arrayDados[0].seleccionar();
+        if (juego.cubilete.arrayDados[0].seleccionado) {
+            document.getElementById("dado1").style.backgroundColor = "#ffaaaa"
+        } else { document.getElementById("dado1").style.backgroundColor = "white" }
 
-        console.log(juego.cubilete.arrayDados[0])
     })
+    document.getElementById("dado2").addEventListener("click", () => {
+        juego.cubilete.arrayDados[1].seleccionar();
+        if (juego.cubilete.arrayDados[1].seleccionado) {
+            document.getElementById("dado2").style.backgroundColor = "#ffaaaa"
+        } else { document.getElementById("dado2").style.backgroundColor = "white" }
+
+    })
+    document.getElementById("dado3").addEventListener("click", () => {
+        juego.cubilete.arrayDados[2].seleccionar();
+        if (juego.cubilete.arrayDados[2].seleccionado) {
+            document.getElementById("dado3").style.backgroundColor = "#ffaaaa"
+        } else { document.getElementById("dado3").style.backgroundColor = "white" }
+
+    })
+    document.getElementById("dado4").addEventListener("click", () => {
+        juego.cubilete.arrayDados[3].seleccionar();
+        if (juego.cubilete.arrayDados[3].seleccionado) {
+            document.getElementById("dado4").style.backgroundColor = "#ffaaaa"
+        } else { document.getElementById("dado4").style.backgroundColor = "white" }
+
+    })
+    document.getElementById("dado5").addEventListener("click", () => {
+        juego.cubilete.arrayDados[4].seleccionar();
+        if (juego.cubilete.arrayDados[4].seleccionado) {
+            document.getElementById("dado5").style.backgroundColor = "#ffaaaa"
+        } else { document.getElementById("dado5").style.backgroundColor = "white" }
+
+    })
+
+
     // document.getElementById("botonOk").addEventListener("click", () => { //GUARDA LOS RESULTADOS
 
     // })
@@ -292,11 +271,6 @@ window.onload = () => {
 
     // };
 
-    // window.onload = () => { }  // TODO DENTRO DE ESTO
-
-    // document.getElementById("dado1").addEventListener("click", () => { //EN TODOS LOS DADOS
-    //     //funcion que cambie "this.seleccionado" a true y a false constantemente
-    // })
 
     // document.getElementById("escalera").appendChild("resultado de la ronda si puedo hacer escalera")
 
@@ -315,8 +289,8 @@ window.onload = () => {
     // if (escalera.innerHTML != "") { return }
 
 
-    if (!document.getElementById("sumaUno").innerHTML) "añadirle el valor"
-    else return
+    // if (!document.getElementById("sumaUno").innerHTML) "añadirle el valor"
+    // else return
 
 
 
