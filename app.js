@@ -4,29 +4,31 @@ class Jugador {
     }
 }
 
+let imgLado1 = document.createElement('img')
+imgLado1.src = "proyectoGenerala/images/imagenDado1.png"
+
+let imgLado2 = document.createElement('img')
+imgLado2.src = "proyectoGenerala/images/imagenDado2.png"
+
+let imgLado3 = document.createElement('img')
+imgLado3.src = "proyectoGenerala/images/imagenDado3.png"
+
+let imgLado4 = document.createElement('img')
+imgLado4.src = "proyectoGenerala/images/imagenDado4.png"
+
+let imgLado5 = document.createElement('img')
+imgLado5.src = "proyectoGenerala/images/imagenDado5.png"
+
+let imgLado6 = document.createElement('img')
+imgLado6.src = "proyectoGenerala/images/imagenDado6.png"
+
 class Dado {
     constructor(identificador) {
         this.valor = (Math.floor(Math.random() * (7 - 1) + 1))
         //this.valor = this.printRandom()  PREGUNTAR PORQUE NO SE PUEDE!!!!!
         this.seleccionado = false;
 
-        this.imgLado1 = document.createElement('img')
-        this.imgLado1.src = "proyectoGenerala/images/imagenDado1.png"
 
-        this.imgLado2 = document.createElement('img')
-        this.imgLado2.src = "proyectoGenerala/images/imagenDado2.png"
-
-        this.imgLado3 = document.createElement('img')
-        this.imgLado3.src = "proyectoGenerala/images/imagenDado3.png"
-
-        this.imgLado4 = document.createElement('img')
-        this.imgLado4.src = "proyectoGenerala/images/imagenDado4.png"
-
-        this.imgLado5 = document.createElement('img')
-        this.imgLado5.src = "proyectoGenerala/images/imagenDado5.png"
-
-        this.imgLado6 = document.createElement('img')
-        this.imgLado6.src = "proyectoGenerala/images/imagenDado6.png"
 
     }
 
@@ -157,7 +159,7 @@ document.querySelector("#hidden button")[0].onclick = () => { //boton de reglas 
 window.onload = () => { }  // TODO DENTRO DE ESTO
 
 document.getElementById("dado1").addEventListener("click", () => { //EN TODOS LOS DADOS
-    //funcion que cambie "this.seleccionado" a true y a false constantemente 
+    //funcion que cambie "this.seleccionado" a true y a false constantemente   
 })
 
 document.getElementById("escalera").appendChild("resultado de la ronda si puedo hacer escalera")
