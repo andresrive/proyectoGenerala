@@ -1,6 +1,6 @@
 body {
     font-size: 16px;
-    background-image: url("images/fondoProvisional.jpg");
+    background-image: url("../images/fondoProvisional.jpg");
     background-color: green;
     background-repeat: repeat;
     color: white;   
@@ -55,6 +55,7 @@ main {
 }
 
 .dados img {
+    display: block;
     width: 6rem;
     background-color: white;
     border-radius: 20px;
