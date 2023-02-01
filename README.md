@@ -20,11 +20,11 @@ The point of the game is to get the most points according to the different 10 po
 
 # Win condition
 
-Score more than 200 points
+Score more than 200 points.
 
 # Lose condition
 
-Score less than 200 points
+Until the board is completed.
 
 # Classes
 
