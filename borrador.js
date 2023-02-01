@@ -112,3 +112,5 @@ class Juego {
 
 let juego = new Juego()
 juego.play()
+
+
