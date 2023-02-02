@@ -281,7 +281,11 @@ window.onload = () => {
                } else { document.getElementById("dado1").style.backgroundColor = "white" }
     */
         }
-        /*   end() //cuando se completa el tablero */
+        // end() {
+        //     // if (Number(this.score) >= 130) {
+        //     //     document.body.innerHTML = "HAS GANADO!"
+        //     // }
+        // } //cuando se llega a 130
 
     }
 
@@ -290,6 +294,7 @@ window.onload = () => {
     /* juego.start()
     juego.play() */
     /* juego.reset() */
+
 
 
     // EVENTOS VARIOS
@@ -340,7 +345,7 @@ window.onload = () => {
     //Eventos botones tablero
     document.getElementById("sumaUno").addEventListener("click", () => {
         juego.tablero.objPosibilidades[0].declarado = true;
-        document.getElementById("sumaUno").style.color = "black"
+        document.getElementById("sumaUno").style.color = "white"
         document.getElementById("sumaUno").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("sumaUno").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -349,7 +354,7 @@ window.onload = () => {
     })
     document.getElementById("sumaDos").addEventListener("click", () => {
         juego.tablero.objPosibilidades[1].declarado = true;
-        document.getElementById("sumaDos").style.color = "black"
+        document.getElementById("sumaDos").style.color = "white"
         document.getElementById("sumaDos").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("sumaDos").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -359,7 +364,7 @@ window.onload = () => {
     })
     document.getElementById("sumaTres").addEventListener("click", () => {
         juego.tablero.objPosibilidades[2].declarado = true;
-        document.getElementById("sumaTres").style.color = "black"
+        document.getElementById("sumaTres").style.color = "white"
         document.getElementById("sumaTres").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("sumaTres").innerHTML)
         //document.elementbyIdSCORE ACTUALIZAR!!!!!
@@ -369,7 +374,7 @@ window.onload = () => {
     })
     document.getElementById("sumaCuatro").addEventListener("click", () => {
         juego.tablero.objPosibilidades[3].declarado = true;
-        document.getElementById("sumaCuatro").style.color = "black"
+        document.getElementById("sumaCuatro").style.color = "white"
         document.getElementById("sumaCuatro").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("sumaCuatro").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -378,7 +383,7 @@ window.onload = () => {
     })
     document.getElementById("sumaCinco").addEventListener("click", () => {
         juego.tablero.objPosibilidades[4].declarado = true;
-        document.getElementById("sumaCinco").style.color = "black"
+        document.getElementById("sumaCinco").style.color = "white"
         document.getElementById("sumaCinco").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("sumaCinco").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -387,7 +392,7 @@ window.onload = () => {
     })
     document.getElementById("sumaSeis").addEventListener("click", () => {
         juego.tablero.objPosibilidades[5].declarado = true;
-        document.getElementById("sumaSeis").style.color = "black"
+        document.getElementById("sumaSeis").style.color = "white"
         document.getElementById("sumaSeis").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("sumaSeis").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -396,7 +401,7 @@ window.onload = () => {
     })
     document.getElementById("escalera").addEventListener("click", () => {
         juego.tablero.objPosibilidades[6].declarado = true;
-        document.getElementById("escalera").style.color = "black"
+        document.getElementById("escalera").style.color = "white"
         document.getElementById("escalera").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("escalera").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -405,7 +410,7 @@ window.onload = () => {
     })
     document.getElementById("fullHouse").addEventListener("click", () => {
         juego.tablero.objPosibilidades[7].declarado = true;
-        document.getElementById("fullHouse").style.color = "black"
+        document.getElementById("fullHouse").style.color = "white"
         document.getElementById("fullHouse").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("fullHouse").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -414,7 +419,7 @@ window.onload = () => {
     })
     document.getElementById("poker").addEventListener("click", () => {
         juego.tablero.objPosibilidades[8].declarado = true
-        document.getElementById("poker").style.color = "black"
+        document.getElementById("poker").style.color = "white"
         document.getElementById("poker").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("poker").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
@@ -423,7 +428,7 @@ window.onload = () => {
     })
     document.getElementById("generala").addEventListener("click", () => {
         juego.tablero.objPosibilidades[9].declarado = true;
-        document.getElementById("generala").style.color = "black"
+        document.getElementById("generala").style.color = "white"
         document.getElementById("generala").style.fontWeight = "bold"
         juego.score += Number(document.getElementById("generala").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
