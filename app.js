@@ -76,27 +76,71 @@ window.onload = () => {
             })
             console.log(this.arrayDados)
             return this.arrayDados;
-
         }
 
+        recalcularValorDado() {
+            this.valor = this.printRandom() // llamo la funcion cuando tengo que recualcualr el valor de los dados en las otras tiradas de dados
+        }
 
     }
 
-
     class Tablero {
         constructor() {
-            this.posibilidad1 = 0
-            this.posibilidad2 = 0
-            this.posibilidad3 = 0
-            this.posibilidad4 = 0
-            this.posibilidad5 = 0
-            this.posibilidad6 = 0
-            this.escalera = 25
-            this.full = 35
-            this.pocker = 45
-            this.generala = 55
-
+            this.objPosibilidades = [
+                {
+                    idDom: "sumaUno",
+                    valor: 1,
+                    declarado: false
+                },
+                {
+                    idDom: "sumaDos",
+                    valor: 2,
+                    declarado: false
+                },
+                {
+                    idDom: "sumaTres",
+                    valor: 3,
+                    declarado: false
+                },
+                {
+                    idDom: "sumaCuatro",
+                    valor: 4,
+                    declarado: false
+                },
+                {
+                    idDom: "sumaCinco",
+                    valor: 5,
+                    declarado: false
+                },
+                {
+                    idDom: "sumaSeis",
+                    valor: 6,
+                    declarado: false
+                },
+                {
+                    idDom: "escalera",
+                    valor: "escalera",
+                    declarado: false
+                },
+                {
+                    idDom: "fullHouse",
+                    valor: "fullHouse",
+                    declarado: false
+                },
+                {
+                    idDom: "poker",
+                    valor: "pocker",
+                    declarado: false
+                },
+                {
+                    idDom: "generala",
+                    valor: "generala",
+                    declarado: false
+                }]
         }
+
+
+
 
         getOptions(arrayDados) {     //obtengo opcines numericas
             let arrayValores = arrayDados.map((dado) => {
@@ -132,7 +176,7 @@ window.onload = () => {
             }
             else if (cantidadOpciones === 2) {
                 if (arrayObjCantidad[0].cantidad === 2 || arrayObjCantidad[0].cantidad === 3) {
-                    let full = { valor: "full", cantidad: 1, total: 35 }
+                    let full = { valor: "fullHouse", cantidad: 1, total: 35 }
                     arrayObjCantidad.push(full)
                 }
                 else {
@@ -142,14 +186,12 @@ window.onload = () => {
             }
 
             else if (cantidadOpciones === 5) {
-                /*  console.log("opcion 5 valores") */
                 let control = true;
 
                 // chequear si son consecutivos
                 for (let i = arrayObjCantidad.length - 1; i > 0; i--) {
                     let valor1 = arrayObjCantidad[i].valor
                     let valor2 = arrayObjCantidad[i - 1].valor
-                    /* console.log("consecutivos? " + valor1 + " " +valor2) */
                     if ((valor1 - valor2) !== 1) {
                         control = false;
                     }  // no son consecutivos, no hace nada
@@ -163,75 +205,102 @@ window.onload = () => {
 
             return arrayObjCantidad
         }
-    }
 
+    }
 
     class Juego {
         constructor() {
             this.tablero = new Tablero()
             this.jugador = new Jugador()
             this.cubilete = new Cubilete()
-
+            this.score = 0
         }
 
-        start() {
+        start() { }
 
-
-            //1 - mostrar pantalla bienvenida
-            // 2 - boton de start (oculta un div y muestraa otro)
-            // 3 - mostrar pagina nueva - dibujar tablero vacio y los dados y sus img
-        } // boton DOM
 
         play() {
             this.cubilete.crearDados()
             this.cubilete.tirarDado()
-
-            console.log("LLamadasATirarDados dentro de play()" + llamadasATirarDados)
-
             console.log(this.cubilete.arrayDados)
-            // // console.log('----------------')
-            let opciones = this.tablero.getOptions(this.cubilete.arrayDados)
-            console.log(opciones)
-            // let opciones = this.tablero.getOptions(this.cubilete.tirarDadosPrueba())  // volver a la funcion oroginal
-            // console.log(opciones)
+
+            let arrayOpciones = this.tablero.getOptions(this.cubilete.arrayDados)
+            console.log(arrayOpciones)
+
+
+            // compara los valores y los imprime en el tablero si no esta seleccionado.
+            this.tablero.objPosibilidades.forEach((posibilidad) => {
+                if (!posibilidad.declarado) {
+                    document.getElementById(posibilidad.idDom).innerHTML = "";
+                    arrayOpciones.forEach((opcion) => {
+                        if (opcion.valor === posibilidad.valor) {
+                            document.getElementById(posibilidad.idDom).innerHTML = opcion.total;
+                        }
+                    })
+                }
+
+            })
+
+            /* this.aumentarScore += arrayOpciones[i].total */
+            /* if(){} */
+
+            /*  return arrayOpciones */
         }
 
-        //1 - tirar dados
-        // 2- seleccionar dados y volver a tirar (tirardados)
-        // 3 - llamar a getOptions y posibilidades de score.
-        //4 - validacion de opciones  para tablero
-        //5-Mostrar posibilidades al jugador en ele tablero
-        //6 - jugador elige posibilidad 
-        //7- toca boton Ok y guardar la posibilidad en el tablero
-        // 8 - vuelvo a tirar dados
-        // asi hasta cuando??? hasta que todas las opciones del tablero estan cubiertas
 
+
+
+        /*   1 - tirar dados
+          2- seleccionar dados y volver a tirar (tirardados)
+          3 - llamar a getOptions y posibilidades de score.
+         4 - validacion de opciones  para tablero
+          5-Mostrar posibilidades al jugador en ele tablero
+         6 - jugador elige posibilidad 
+         /7- toca boton Ok y guardar la posibilidad en el tablero
+           8 - vuelvo a tirar dados
+           asi hasta cuando??? hasta que todas las opciones del tablero estan cubiertas */
+
+
+        /*   } */
+        reset() {
+            this.tablero.objPosibilidades.forEach((posibilidad) => {
+                if (!posibilidad.declarado) {
+                    document.getElementById(posibilidad.idDom).innerHTML = ""
+                }
+            })
+
+            llamadasATirarDados = 0
+
+            this.cubilete.arrayDados.forEach((dado) => {
+                dado.seleccionado = false
+                document.getElementById(`dado${dado.identificador}`).style.backgroundColor = "white"
+            })
+            console.log(this.cubilete.arrayDados)
+            /*    if (juego.cubilete.arrayDados[0].seleccionado) {
+                   document.getElementById("dado1").style.backgroundColor = "#ffaaaa"
+               } else { document.getElementById("dado1").style.backgroundColor = "white" }
+    */
+        }
+        /*   end() //cuando se completa el tablero */
 
     }
-    // end() {
-    //     this.tablero.objPosibilidades[i].declarado.forEach(() => {
-    //         // una funcion que itere sobre el array y mire si declarado es true
-    //         //si sí, que el juego pare y no deje dar más a tirar dados
-    //     })
-    // } //cuando se completa el tablero
-
 
 
     let juego = new Juego()
-    // juego.start()
-    // juego.play()
+    /* juego.start()
+    juego.play() */
+    /* juego.reset() */
 
 
     // EVENTOS VARIOS
     document.getElementById("tirarDados").addEventListener("click", () => {
-        if (llamadasATirarDados >= 3) return
+        if (llamadasATirarDados === 3) return
         juego.play()
         llamadasATirarDados++
-        console.log("LLamadasATirarDados" + llamadasATirarDados)
-
-
     })
 
+
+    //clicks DADOS
     document.getElementById("dado1").addEventListener("click", () => {
         juego.cubilete.arrayDados[0].seleccionar();
         if (juego.cubilete.arrayDados[0].seleccionado) {
@@ -268,38 +337,101 @@ window.onload = () => {
 
     })
 
+    //Eventos botones tablero
+    document.getElementById("sumaUno").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[0].declarado = true;
+        document.getElementById("sumaUno").style.color = "black"
+        document.getElementById("sumaUno").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("sumaUno").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("sumaDos").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[1].declarado = true;
+        document.getElementById("sumaDos").style.color = "black"
+        document.getElementById("sumaDos").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("sumaDos").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
 
-    // document.getElementById("botonOk").addEventListener("click", () => { //GUARDA LOS RESULTADOS
-
-    // })
-
-    // document.querySelector("#hidden button")[0].onclick = () => { //boton de reglas para empezar a jugar?
-
-    // };
-
-
-    // document.getElementById("escalera").appendChild("resultado de la ronda si puedo hacer escalera")
-
-    // document.getElementById("escalera").addEventListener("click", () => { //ELIJO ESE RESULTADO COMO EL QUE QUIERO Y LUEGO LE DOY AL BOTON OK
-
-    // })
-    // document.getElementById("sumaSeis").appendChild("resultado de la ronda si puedo juntar uno o mas seis")
-
-    // document.getElementById("sumaSeis").addEventListener("click", () => { //ELIJO ESE RESULTADO COMO EL QUE QUIERO Y LUEGO LE DOY AL BOTON OK
-
-    // })
-
-
-    // let escalera = document.getElementById("escalera")
-
-    // if (escalera.innerHTML != "") { return }
-
-
-    // if (!document.getElementById("sumaUno").innerHTML) "añadirle el valor"
-    // else return
-
-
+    })
+    document.getElementById("sumaTres").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[2].declarado = true;
+        document.getElementById("sumaTres").style.color = "black"
+        document.getElementById("sumaTres").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("sumaTres").innerHTML)
+        //document.elementbyIdSCORE ACTUALIZAR!!!!!
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("sumaCuatro").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[3].declarado = true;
+        document.getElementById("sumaCuatro").style.color = "black"
+        document.getElementById("sumaCuatro").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("sumaCuatro").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("sumaCinco").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[4].declarado = true;
+        document.getElementById("sumaCinco").style.color = "black"
+        document.getElementById("sumaCinco").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("sumaCinco").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("sumaSeis").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[5].declarado = true;
+        document.getElementById("sumaSeis").style.color = "black"
+        document.getElementById("sumaSeis").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("sumaSeis").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("escalera").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[6].declarado = true;
+        document.getElementById("escalera").style.color = "black"
+        document.getElementById("escalera").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("escalera").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("fullHouse").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[7].declarado = true;
+        document.getElementById("fullHouse").style.color = "black"
+        document.getElementById("fullHouse").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("fullHouse").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("poker").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[8].declarado = true
+        document.getElementById("poker").style.color = "black"
+        document.getElementById("poker").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("poker").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
+    document.getElementById("generala").addEventListener("click", () => {
+        juego.tablero.objPosibilidades[9].declarado = true;
+        document.getElementById("generala").style.color = "black"
+        document.getElementById("generala").style.fontWeight = "bold"
+        juego.score += Number(document.getElementById("generala").innerHTML)
+        document.getElementById('resultadoJuego').innerHTML = juego.score
+        console.log("score", juego.score)
+        juego.reset()
+    })
 
 
 }
+
 
