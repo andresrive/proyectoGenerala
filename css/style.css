@@ -3,7 +3,8 @@ body {
     background-image: url("../images/fondoProvisional.jpg");
     background-color: green;
     background-repeat: repeat;
-    color: white;   
+    color: white
+  
 }
 
 #hidden {
@@ -17,24 +18,39 @@ body {
     width: 40rem;
 }
 
+h1 {
+    margin-bottom: 2rem;
+}
+
+#main {
+    color: white;
+}
 .button {
     padding: 2rem 3rem;
     border-radius: 25px;
     width: 8rem;
     height: 8rem;
+    color: white
 }
 
 #hidden button {
     display: block;
 }
 
-table, th, td {
-    border: 1px solid white;
+#tabla {
+    padding: 3rem
+}
+
+#table, th, td {
+    border: 3px solid white;
     text-align: center;
 }
 
-td, th {
-    padding: 1rem;
+#tabla td, th {
+    padding: 1rem 4rem;
+    color: white;
+    font-size: 1rem;
+
 }
 
 h1 {

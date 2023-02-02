@@ -175,7 +175,7 @@ window.onload = () => {
         }
 
         start() {
-            this.cubilete.crearDados()
+
 
             //1 - mostrar pantalla bienvenida
             // 2 - boton de start (oculta un div y muestraa otro)
@@ -183,6 +183,7 @@ window.onload = () => {
         } // boton DOM
 
         play() {
+            this.cubilete.crearDados()
             this.cubilete.tirarDado()
 
             console.log("LLamadasATirarDados dentro de play()" + llamadasATirarDados)
@@ -207,13 +208,18 @@ window.onload = () => {
 
 
     }
-    // end() { } //cuando se completa el tablero
+    // end() {
+    //     this.tablero.objPosibilidades[i].declarado.forEach(() => {
+    //         // una funcion que itere sobre el array y mire si declarado es true
+    //         //si sí, que el juego pare y no deje dar más a tirar dados
+    //     })
+    // } //cuando se completa el tablero
 
 
 
     let juego = new Juego()
-    juego.start()
-    juego.play()
+    // juego.start()
+    // juego.play()
 
 
     // EVENTOS VARIOS
