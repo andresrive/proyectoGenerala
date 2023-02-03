@@ -281,11 +281,11 @@ window.onload = () => {
                } else { document.getElementById("dado1").style.backgroundColor = "white" }
     */
         }
-        // end() {
-        //     // if (Number(this.score) >= 130) {
-        //     //     document.body.innerHTML = "HAS GANADO!"
-        //     // }
-        // } //cuando se llega a 130
+        end() {
+            if (Number(this.score) >= 10) {
+                document.getElementById("victoria").classList.remove('hidden')
+            }
+        } //cuando se llega a 130
 
     }
 
@@ -350,6 +350,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("sumaUno").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("sumaDos").addEventListener("click", () => {
@@ -359,6 +360,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("sumaDos").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
 
     })
@@ -370,6 +372,7 @@ window.onload = () => {
         //document.elementbyIdSCORE ACTUALIZAR!!!!!
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("sumaCuatro").addEventListener("click", () => {
@@ -379,6 +382,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("sumaCuatro").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("sumaCinco").addEventListener("click", () => {
@@ -388,6 +392,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("sumaCinco").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("sumaSeis").addEventListener("click", () => {
@@ -397,6 +402,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("sumaSeis").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("escalera").addEventListener("click", () => {
@@ -406,6 +412,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("escalera").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("fullHouse").addEventListener("click", () => {
@@ -415,6 +422,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("fullHouse").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("poker").addEventListener("click", () => {
@@ -424,6 +432,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("poker").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
     document.getElementById("generala").addEventListener("click", () => {
@@ -433,6 +442,7 @@ window.onload = () => {
         juego.score += Number(document.getElementById("generala").innerHTML)
         document.getElementById('resultadoJuego').innerHTML = juego.score
         console.log("score", juego.score)
+        juego.end()
         juego.reset()
     })
 
