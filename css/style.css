@@ -93,12 +93,14 @@ main {
     position:absolute;
     top:0;
     left:0;
-    background-color: red;
+    background-color: rgba(50, 50, 50, 0.4);
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 10rem;
+    color: #e9ff70    
 }
 
 #victoria.hidden {

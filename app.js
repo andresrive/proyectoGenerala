@@ -282,7 +282,7 @@ window.onload = () => {
     */
         }
         end() {
-            if (Number(this.score) >= 10) {
+            if (Number(this.score) >= 130) {
                 document.getElementById("victoria").classList.remove('hidden')
             }
         } //cuando se llega a 130
