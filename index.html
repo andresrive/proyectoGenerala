@@ -12,15 +12,33 @@
 </head>
 
 <body>
-    <!-- <div id="reglas" class="hidden">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non facere molestias, illum laboriosam culpa ullam?
-            Repudiandae iste quo tempora eaque! Enim aliquid optio nihil. Voluptates exercitationem eum assumenda fuga
-            dolorem!
-            Odio dolorum enim quos officia sunt assumenda praesentium autem, hic vero cumque vitae odit nesciunt
-            accusamus eveniet, recusandae reprehenderit animi, voluptatibus quas quia nam quisquam! Velit dolore soluta
-            culpa qui?</p>
-        <button class="button">Iniciar</button>
-    </div> -->
+    <div id="reglas">
+        <div>
+            <p>
+                La generala es un juego que se juega con cinco dados y cuyo objetivo es alcanzar los 130 puntos. Estos
+                se
+                obtienen según la valoración establecida para cada una de las categorías. El jugador tiene tres tiradas
+                de
+                dados por ronda para intentar conseguir el resultado deseado, en donde puede escoger si quiere quedarse
+                con
+                los dados que tiene o volverlos a tirar. Pudiendo escoger cada resultado una sola vez por partida.
+                Las diferentes categorías son:
+            </p>
+            <ul>
+                <li><strong>1</strong>: Es la suma de los 1 obtenidos</li>
+                <li><strong>2</strong>: Es la suma de los 2 obtenidos</li>
+                <li><strong>3</strong>: Es la suma de los 3 obtenidos</li>
+                <li><strong>4</strong>: Es la suma de los 4 obtenidos</li>
+                <li><strong>5</strong>: Es la suma de los 5 obtenidos</li>
+                <li><strong>6</strong>: Es la suma de los 6 obtenidos</li>
+                <li><strong>Escalera</strong>: Se forma con una progresión de 5 números, 35 puntos</li>
+                <li><strong>Full House</strong>: Se forma con un par y un trío, 35 puntos</li>
+                <li><strong>Poker</strong>: Se forma con cuatro dados iguales, 45 puntos</li>
+                <li><strong>Generala</strong>: Se forma con los cinco dados iguales, 55 puntos</li>
+            </ul>
+        </div>
+        <button id="btn-reglas" class="btn btn-outline-light">Iniciar</button>
+    </div>
 
     <main id="main">
         <div id="areaTabla">
@@ -134,10 +152,12 @@
         </div>
         <div id="score">
             <h1>Generala</h1>
-            <button id="tirarDados" type="button" class="btn btn-outline-light" class="button">Tirar dados</button>
+            <button id="tirarDados" type="button" class="btn btn-outline-light">Tirar dados</button>
         </div>
 
-        <div id="victoria" class="hidden">Has ganado!</div>
+        <div id="victoria" class="hidden">Has ganado!
+            <button id="btn-victoria" class="hidden btn btn-outline-light">Jugar otra vez</button>
+        </div>
     </main>
 
 

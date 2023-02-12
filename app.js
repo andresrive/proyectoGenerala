@@ -266,6 +266,7 @@ window.onload = () => {
             this.tablero.objPosibilidades.forEach((posibilidad) => {
                 if (!posibilidad.declarado) {
                     document.getElementById(posibilidad.idDom).innerHTML = ""
+
                 }
             })
 
@@ -274,6 +275,7 @@ window.onload = () => {
             this.cubilete.arrayDados.forEach((dado) => {
                 dado.seleccionado = false
                 document.getElementById(`dado${dado.identificador}`).style.backgroundColor = "white"
+                document.getElementById(`dado${dado.identificador}`).src = "./images/imagenDado1.png"
             })
             console.log(this.cubilete.arrayDados)
             /*    if (juego.cubilete.arrayDados[0].seleccionado) {
@@ -298,6 +300,11 @@ window.onload = () => {
 
 
     // EVENTOS VARIOS
+    document.getElementById("btn-reglas").addEventListener("click", () => {
+        document.getElementById("reglas").classList.add('hidden')
+    })
+
+
     document.getElementById("tirarDados").addEventListener("click", () => {
         if (llamadasATirarDados === 3) return
         juego.play()
@@ -444,6 +451,21 @@ window.onload = () => {
         console.log("score", juego.score)
         juego.end()
         juego.reset()
+    })
+
+    document.getElementById("btn-victoria").addEventListener("click", () => {
+        juego.play()
+        juego.tablero.objPosibilidades.forEach((posibilidad) => {
+            posibilidad.declarado = false
+        })
+        juego.score = 0
+        juego.tablero.objPosibilidades.forEach((posibilidad) => {
+            document.getElementById(posibilidad.idDom).style.fontWeight = "normal"
+        })
+        document.getElementById('resultadoJuego').innerHTML = ""
+        juego.reset()
+        document.getElementById("victoria").classList.add('hidden')
+
     })
 
 
