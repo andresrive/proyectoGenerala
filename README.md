@@ -8,9 +8,9 @@ Our names are Lucía and Andrés, we're from Argentina and Venezuela and we're o
 
 # Deployment
 
-You can play the game here.
+You can play the game [here](https://andresrive.github.io/proyectoGenerala/).
 
-# Work structur
+# Work structure
 
 We developed this project alone and used Trello to organize our workflow
 
@@ -20,11 +20,11 @@ The point of the game is to get the most points according to the different 10 po
 
 # Win condition
 
-Score more than 200 points.
+Score more than 130 points.
 
 # Lose condition
 
-Until the board is completed.
+Score less than 130 points.
 
 # Classes
 
