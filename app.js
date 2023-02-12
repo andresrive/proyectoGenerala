@@ -216,8 +216,6 @@ window.onload = () => {
             this.score = 0
         }
 
-        start() { }
-
 
         play() {
             this.cubilete.crearDados()
@@ -241,27 +239,10 @@ window.onload = () => {
 
             })
 
-            /* this.aumentarScore += arrayOpciones[i].total */
-            /* if(){} */
 
-            /*  return arrayOpciones */
         }
 
 
-
-
-        /*   1 - tirar dados
-          2- seleccionar dados y volver a tirar (tirardados)
-          3 - llamar a getOptions y posibilidades de score.
-         4 - validacion de opciones  para tablero
-          5-Mostrar posibilidades al jugador en ele tablero
-         6 - jugador elige posibilidad 
-         /7- toca boton Ok y guardar la posibilidad en el tablero
-           8 - vuelvo a tirar dados
-           asi hasta cuando??? hasta que todas las opciones del tablero estan cubiertas */
-
-
-        /*   } */
         reset() {
             this.tablero.objPosibilidades.forEach((posibilidad) => {
                 if (!posibilidad.declarado) {
@@ -278,24 +259,20 @@ window.onload = () => {
                 document.getElementById(`dado${dado.identificador}`).src = "./images/imagenDado1.png"
             })
             console.log(this.cubilete.arrayDados)
-            /*    if (juego.cubilete.arrayDados[0].seleccionado) {
-                   document.getElementById("dado1").style.backgroundColor = "#ffaaaa"
-               } else { document.getElementById("dado1").style.backgroundColor = "white" }
-    */
+
+
         }
         end() {
             if (Number(this.score) >= 130) {
                 document.getElementById("victoria").classList.remove('hidden')
             }
-        } //cuando se llega a 130
+        }
 
     }
 
 
     let juego = new Juego()
-    /* juego.start()
-    juego.play() */
-    /* juego.reset() */
+
 
 
 
